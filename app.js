@@ -3,6 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var randomstring = require("randomstring");
+var http = require("http");
+
 //<<<<<<< HEAD
 //var passport = require('passport');
 //var passport = require('./config/passport.js');
@@ -35,9 +37,10 @@ app.get('/', function(req, res){
 });
 
 
-http.listen(process.env.PORT || 3000, function(){
-  console.log('listening on', http.address().port);
-});
+// http.listen(process.env.PORT || 3000, function(){
+//   console.log('listening on', http.address().port);
+// });
+app.listen(process.env.PORT || 3000)
 //app.listen(3000);
 
 /* Google Code */
