@@ -1,0 +1,27 @@
+{
+  "name": "encryptedx2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha ./tests"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.206.0",
+    "bcrypt": "^1.0.3",
+    "body-parser": "*",
+    "cryptr": "^3.0.0",
+    "express": "*",
+    "file-encryptor": "^0.1.1",
+    "mongoose": "*",
+    "randomstring": "^1.1.5"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0",
+    "superagent": "^3.8.2",
+    "supertest": "^3.0.0"
+  }
+}
