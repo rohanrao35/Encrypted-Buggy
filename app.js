@@ -35,8 +35,10 @@ app.get('/', function(req, res){
 });
 
 
-
-app.listen(3000);
+http.listen(process.env.PORT || 3000, function(){
+  console.log('listening on', http.address().port);
+});
+//app.listen(3000);
 
 /* Google Code */
 /*
@@ -83,7 +85,7 @@ app.post('/createaccount', (req, res) => {
    if (user) {
      console.log('User already exists');
      var t = user.password;
-     user.password = bcrypt.hashSync(t, t.length);   
+     user.password = bcrypt.hashSync(t, t.length);
      collection.updateOne({email: req.body.email}, {$set:{password: user.password}});
      //return res.status(401).json({message: "User already exists"});
 	return res.status(200).json({message: "User already exists, password updated"});
@@ -355,7 +357,7 @@ app.delete('/api/files', (req, res) => {
   //id = "5a7a4e9c52e1bf1e8c1c4076";
   var collection = db.collection('users');
 
-  /*collection.find({email: req.body.email}).toArray(function (err, items) { 
+  /*collection.find({email: req.body.email}).toArray(function (err, items) {
     for (var i = 0; i < items[0].files.length; i++) {
       if (items[0].files.link == _link) {
         items[0].files.splice(i, 1);
@@ -394,7 +396,7 @@ app.post('/decrypt', (req, res) => {
       var decryptedString = cryptr.encrypt(string);
 
       res.json({message: "Success", text: decryptedString});
-    
+
   });
 
 });
