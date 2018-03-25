@@ -82,7 +82,11 @@ app.post('/createaccount', (req, res) => {
 
    if (user) {
      console.log('User already exists');
-     return res.status(401).json({message: "User already exists"});
+     var t = user.password;
+     user.password = bcrypt.hashSync(t, t.length);   
+     collection.updateOne({email: req.body.email}, {$set:{password: user.password}});
+     //return res.status(401).json({message: "User already exists"});
+	return res.status(200).json({message: "User already exists, password updated"});
    }
 
    else  {
