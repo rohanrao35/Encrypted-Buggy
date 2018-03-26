@@ -32,16 +32,18 @@ var db = mongoose.connection;
 User =require('./models/user');
 Files =require('./models/file');
 
-app.get('/', function(req, res){
-  res.send('Hello ');
+app.set( 'port', ( process.env.PORT || 5000 ));
+
+app.get('/', function(req, res) {
+//res.send('hello world');
+res.sendFile('src/login/index.html', {root: __dirname })
 });
 
 
-// http.listen(process.env.PORT || 3000, function(){
-//   console.log('listening on', http.address().port);
-// });
-app.listen(process.env.PORT || 3000)
-//app.listen(3000);
+// Start node server
+app.listen( app.get( 'port' ), function() {
+  console.log( 'Node server is running on portss ' + app.get( 'port' ));
+  });
 
 /* Google Code */
 /*
